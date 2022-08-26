@@ -24,7 +24,7 @@ export class ReserveEntity {
     @ApiProperty()
     price: number
 
-    @Column({ type: 'enum', enum: Tariff})
+    @Column({ type: 'enum', enum: Tariff, nullable: true})
     @ApiProperty()
     tariff: Tariff
     
