@@ -71,6 +71,10 @@ export class UsersService {
     
     async updateManager(dto: UpdateManagerDto){
         const user = await this.findManagerById(dto.id)
+        if(!user){
+            throw new NotFoundException('Пользователь с таким номером не найден')
+        }
+
         Object.assign(user, dto)
         return await this.UserRepository.save(user)
     }

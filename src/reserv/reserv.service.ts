@@ -36,9 +36,6 @@ export class ReservService {
         }
 
         const tariff = await this.tariffPlane(dto.tariff)
-        // dto.price = tariff.price
-        // dto.places = tariff.places
-        // dto.whole_cottage = tariff.whole_cottage
         Object.assign(dto, tariff)
 
         const ctg = await this.CottageService.findCtgById(dto.cotagge_id)
@@ -100,6 +97,6 @@ export class ReservService {
         const reserv = await this.findReserve(id)
 
         await this.ReserveRepository.remove(reserv)
-        return { message: 'Коттедж успешно удален' }
+        return { message: 'Бронь успешна удалена' }
     }
 }

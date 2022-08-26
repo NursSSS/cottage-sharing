@@ -19,7 +19,7 @@ export class AuthService {
     }
     
     async signin(dto: CreateUserDto){
-        const user: any = await this.UsersService.createUser(dto)
+        const user = await this.UsersService.createUser(dto)
         
         return await this.generateToken(user)
     }
